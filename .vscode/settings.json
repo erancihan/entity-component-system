@@ -1,0 +1,28 @@
+{
+  "python.defaultInterpreterPath": ".venv/bin/python",
+  "python.languageServer": "Pylance",
+  "python.linting.enabled": true,
+
+  "python.poetryPath": "poetry",
+
+  "pylint.interpreter": [".venv/bin/python"],
+  "pylint.args": [
+    "--enable=W0614",
+    "--disable=I0011",
+    "--disable=C0103",
+    "--disable=C0111", // C0111 missing docstring
+    "--disable=C0115",
+    "--reports=12",
+    "--load-plugins=pylint_django,pylint_celery",
+    "--enable=unused-import",
+    "--django-settings-module=server/server.settings"
+  ],
+
+  "flake8.interpreter": [".venv/bin/python"],
+
+  "blade.format.enable": true,
+
+  "makefile.extensionOutputFolder": "./.vscode/makefile",
+
+  "files.trimTrailingWhitespace": true
+}
