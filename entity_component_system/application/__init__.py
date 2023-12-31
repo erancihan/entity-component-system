@@ -11,6 +11,8 @@ def auto_import():
     Automatically import all modules in the same directory as this file
     if they are not imported already.
     """
+    _imported_modules = set()
+
     cwd = os.path.dirname(os.path.abspath(__file__))
     for filename in os.listdir(cwd):
         if not filename.endswith(".py") or filename == "__init__.py":
@@ -32,6 +34,11 @@ def auto_import():
         # export attributes to this module
         for attr in attrs:
             globals()[attr.__name__] = attr
+            _imported_modules.add(module_name)
+
+    # debug print imported modules
+    if _imported_modules:
+        print(f":::: Imported '{len(_imported_modules)}' modules: {_imported_modules}")
 
 
 auto_import()
