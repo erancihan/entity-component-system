@@ -1,6 +1,6 @@
 install:
 	@echo "Installing..."
-	./.devops/install.sh
+	@ ./.devops/install.sh
 
 test:
 	@echo "Running tests..."
